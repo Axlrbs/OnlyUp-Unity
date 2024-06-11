@@ -13,6 +13,7 @@ public class PlayerMotor : MonoBehaviour
    private float currentCameraRotationX = 0f;
    private Rigidbody rb;
 
+
    [SerializeField]
    private float cameraRotationLimit = 85f;
 
