@@ -12,6 +12,9 @@ public class PlayerMotor : MonoBehaviour
    private float cameraRotationX = 0f;
    private float currentCameraRotationX = 0f;
    private Rigidbody rb;
+   
+   public bool jump;
+   public bool isGrounded;
 
 
    [SerializeField]
@@ -42,6 +45,7 @@ public class PlayerMotor : MonoBehaviour
    {
       PerformMovement();
       PerformRotation();
+      PerformJump();
    }
 
    private void PerformMovement()
@@ -64,5 +68,16 @@ public class PlayerMotor : MonoBehaviour
       // on applique la rotation de la caméra
       cam.transform.localEulerAngles = new Vector3(currentCameraRotationX,0f,0f);
    }
+   
+   private void PerformJump()
+   {
+      if (jump && isGrounded)
+      {
+         rb.AddForce(Vector3.up * 5, ForceMode.VelocityChange);
+         jump = false;
+         isGrounded = false;
+      }
+   }
+
    
 }

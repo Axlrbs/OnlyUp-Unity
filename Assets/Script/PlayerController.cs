@@ -16,17 +16,16 @@ public class PlayerController : MonoBehaviour
 
     private PlayerMotor motor;
 
-    private CharacterController controller;
     private Vector3 playerVelocity;
-    private bool groundedPlayer;
-    private float playerSpeed = 2.0f;
-    private float jumpHeight = 1.0f;
-    private float gravityValue = -9.81f;
+
+    public Rigidbody rb;
+
+    private bool isOnGround = true;
 
     private void Start()
     {
         motor = GetComponent<PlayerMotor>();
-        controller = gameObject.AddComponent<CharacterController>();
+        rb = GetComponent<Rigidbody>();
     }
 
     private void Update()
@@ -62,27 +61,17 @@ public class PlayerController : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
         }
 
-        groundedPlayer = controller.isGrounded;
-        if (groundedPlayer && playerVelocity.y < 0)
+        if (Input.GetButtonDown("Jump")&& isOnGround)
         {
-            playerVelocity.y = 0f;
+            rb.AddForce(new Vector3(0,5,0),ForceMode.Impulse);
+            isOnGround = false;
         }
 
-        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        controller.Move(move * Time.deltaTime * speed);
+    }
 
-        if (move != Vector3.zero)
-        {
-            gameObject.transform.forward = move;
-        }
-
-        // Changes the height position of the player..
-        if (Input.GetButtonDown("Jump") && groundedPlayer)
-        {
-            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
-        }
-
-        playerVelocity.y += gravityValue * Time.deltaTime;
-        controller.Move(playerVelocity * Time.deltaTime);
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+            isOnGround = true;
     }
 }
