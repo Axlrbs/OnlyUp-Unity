@@ -544,7 +544,7 @@ MonoBehaviour:
   autoConnectClientBuild: 0
   sendRate: 30
   offlineScene: Assets/Scenes/SceneAxel.unity
-  onlineScene: Assets/Scenes/06 - Castle.unity
+  onlineScene: Assets/Scenes/08 - Japan.unity
   transport: {fileID: 2071528323}
   networkAddress: localhost
   maxConnections: 100
