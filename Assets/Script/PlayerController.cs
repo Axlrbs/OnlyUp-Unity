@@ -22,13 +22,15 @@ public class PlayerController : MonoBehaviour
     private bool isOnGround = true;
 
 
-    private void Awake(){
+    private void Awake()
+    {
         playerAnim = GetComponent<Animator>();
     }
 
 
     private void Start()
-    { motor = GetComponent<PlayerMotor>();
+    {
+        motor = GetComponent<PlayerMotor>();
         rb = GetComponent<Rigidbody>();
 
         // Configure Rigidbody
@@ -65,44 +67,55 @@ public class PlayerController : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
         }
 
+        // Saut
         if (Input.GetButtonDown("Jump") && isOnGround)
         {
             rb.AddForce(new Vector3(0, 8, 0), ForceMode.Impulse);
             isOnGround = false;
+            ResetTriggers();
+            playerAnim.SetTrigger("JumpTrigger");
         }
 
         // Gérer les animations avec des triggers
-        if (zMove > 0)
+        else if (isOnGround)
         {
-            ResetTriggers();
-            playerAnim.SetTrigger("RunTrigger");
-        }
-        else if (xMove < 0)
-        {
-            ResetTriggers();
-            playerAnim.SetTrigger("LeftTrigger");
-        }
-        else if (xMove > 0)
-        {
-            ResetTriggers();
-            playerAnim.SetTrigger("RightTrigger");
-        }
-        else if (zMove < 0)
-        {
-            ResetTriggers();
-            playerAnim.SetTrigger("BackTrigger");
-        }
-        else
-        {
-            ResetTriggers();
+            if (zMove > 0)
+            {
+                ResetTriggers();
+                playerAnim.SetTrigger("RunTrigger");
+            }
+            else if (xMove < 0)
+            {
+                ResetTriggers();
+                playerAnim.SetTrigger("LeftTrigger");
+            }
+            else if (xMove > 0)
+            {
+                ResetTriggers();
+                playerAnim.SetTrigger("RightTrigger");
+            }
+            else if (zMove < 0)
+            {
+                ResetTriggers();
+                playerAnim.SetTrigger("BackTrigger");
+            }
+            else
+            {
+                ResetTriggers();
+                playerAnim.SetTrigger("GroundTrigger");
+            }
+
         }
     }
-        private void ResetTriggers()
+
+    private void ResetTriggers()
     {
         playerAnim.ResetTrigger("RunTrigger");
         playerAnim.ResetTrigger("LeftTrigger");
         playerAnim.ResetTrigger("RightTrigger");
         playerAnim.ResetTrigger("BackTrigger");
+        playerAnim.ResetTrigger("JumpTrigger");
+        playerAnim.ResetTrigger("GroundTrigger");
     }
 
     private void OnCollisionEnter(Collision collision)
