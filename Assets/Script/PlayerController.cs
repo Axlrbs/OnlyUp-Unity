@@ -22,6 +22,12 @@ public class PlayerController : MonoBehaviour
 
     private bool isOnGround = true;
 
+
+    private void Awake(){
+        playerAnim = GetComponent<Animator>();
+    }
+
+
     private void Start()
     {
         motor = GetComponent<PlayerMotor>();
@@ -65,6 +71,11 @@ public class PlayerController : MonoBehaviour
         {
             rb.AddForce(new Vector3(0,8,0),ForceMode.Impulse);
             isOnGround = false;
+        }
+
+        if(Input.GetButtonDown("Z"))
+        {
+
         }
 
     }
