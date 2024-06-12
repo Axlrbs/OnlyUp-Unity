@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Jump")&& isOnGround)
         {
-            rb.AddForce(new Vector3(0,5,0),ForceMode.Impulse);
+            rb.AddForce(new Vector3(0,8,0),ForceMode.Impulse);
             isOnGround = false;
         }
 
