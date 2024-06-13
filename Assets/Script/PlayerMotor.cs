@@ -13,8 +13,8 @@ public class PlayerMotor : MonoBehaviour
    private float currentCameraRotationX = 0f;
    private Rigidbody rb;
    
-   public bool jump;
-   public bool isGrounded;
+   private bool jump;
+   private bool isGrounded;
 
 
    [SerializeField]

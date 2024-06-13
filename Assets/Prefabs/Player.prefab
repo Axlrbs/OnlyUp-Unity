@@ -229,10 +229,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c14564dba1c382146ae0521de9aac0cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  threshold: 0
-  x: 107
-  y: 92
-  z: 9
+  threshold: -10
+  x: -33
+  y: 15
+  z: 67
 --- !u!95 &7857242456758915315
 Animator:
   serializedVersion: 4
@@ -386,15 +386,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9044628465830257243, guid: 79bc24ca147bdfc4a95a3d5ad1a84fbe, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.5291988
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9044628465830257243, guid: 79bc24ca147bdfc4a95a3d5ad1a84fbe, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.025
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9044628465830257243, guid: 79bc24ca147bdfc4a95a3d5ad1a84fbe, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.855411
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9044628465830257243, guid: 79bc24ca147bdfc4a95a3d5ad1a84fbe, type: 3}
       propertyPath: m_LocalRotation.w
