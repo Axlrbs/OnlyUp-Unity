@@ -70,8 +70,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 2577598742548588111}
-  jump: 0
-  isGrounded: 0
   cameraRotationLimit: 85
 --- !u!114 &2577598741640592181
 MonoBehaviour:
@@ -86,8 +84,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  mouseSensitivityX: 0.3
-  mouseSensitivityY: 0.3
+  mouseSensitivityX: 1
+  mouseSensitivityY: 0.5
   rb: {fileID: 2577598741640592183}
 --- !u!136 &2577598741640592178
 CapsuleCollider:
@@ -233,6 +231,9 @@ MonoBehaviour:
   x: -33
   y: 15
   z: 67
+  xCheat: 0
+  yCheat: 0
+  zCheat: 0
 --- !u!95 &7857242456758915315
 Animator:
   serializedVersion: 4
