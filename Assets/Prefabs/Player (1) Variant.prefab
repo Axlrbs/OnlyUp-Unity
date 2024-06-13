@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: sceneId
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -706058703824527866, guid: 69110f88e72cca548adca6a516a9cee6, type: 3}
+      propertyPath: _assetId
+      value: 1764884169
+      objectReference: {fileID: 0}
     - target: {fileID: 2577598741640592178, guid: 69110f88e72cca548adca6a516a9cee6, type: 3}
       propertyPath: m_Height
       value: 1.8330975
@@ -21,7 +25,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2577598741640592179, guid: 69110f88e72cca548adca6a516a9cee6, type: 3}
       propertyPath: m_Name
-      value: Player (1)
+      value: Player (1) Variant
       objectReference: {fileID: 0}
     - target: {fileID: 2577598741640592181, guid: 69110f88e72cca548adca6a516a9cee6, type: 3}
       propertyPath: mouseSensitivityX
@@ -101,7 +105,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7769823686506223032, guid: 69110f88e72cca548adca6a516a9cee6, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69110f88e72cca548adca6a516a9cee6, type: 3}
@@ -192,7 +196,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 996c970bd6dfe774aab2cdbeaa6316cb, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 996c970bd6dfe774aab2cdbeaa6316cb, type: 3}
       propertyPath: m_Controller
