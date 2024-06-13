@@ -21,12 +21,10 @@ public class PlayerController : MonoBehaviour
 
     private bool isOnGround = true;
 
-
     private void Awake()
     {
         playerAnim = GetComponent<Animator>();
     }
-
 
     private void Start()
     {
@@ -36,6 +34,7 @@ public class PlayerController : MonoBehaviour
         // Configure Rigidbody
         rb.interpolation = RigidbodyInterpolation.Interpolate;
         rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
+        rb.useGravity = true;  // Assurez-vous que la gravité est activée
     }
 
     private void Update()
@@ -77,7 +76,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // Gérer les animations avec des triggers
-        else if (isOnGround)
+        if (isOnGround)
         {
             if (zMove > 0)
             {
@@ -102,9 +101,8 @@ public class PlayerController : MonoBehaviour
             else
             {
                 ResetTriggers();
-                playerAnim.SetTrigger("GroundTrigger");
+                playerAnim.SetTrigger("IdleTrigger");  // assuming you have an IdleTrigger
             }
-
         }
     }
 
@@ -115,7 +113,7 @@ public class PlayerController : MonoBehaviour
         playerAnim.ResetTrigger("RightTrigger");
         playerAnim.ResetTrigger("BackTrigger");
         playerAnim.ResetTrigger("JumpTrigger");
-        playerAnim.ResetTrigger("GroundTrigger");
+        playerAnim.ResetTrigger("IdleTrigger");
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -123,6 +121,16 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isOnGround = true;
+            ResetTriggers();
+            playerAnim.SetTrigger("GroundTrigger");
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isOnGround = false;
         }
     }
 }
