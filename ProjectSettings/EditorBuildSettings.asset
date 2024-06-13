@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 576a9c21512dad44c837dec9d6e30b58
+  - enabled: 1
     path: Assets/Scenes/08 - Japan.unity
     guid: ec7c1be41d59f42cd95eacc962767e02
   - enabled: 1
